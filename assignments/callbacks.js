@@ -2,10 +2,10 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
+/*
 
-  //Given this problem: 
-  
+  //Given this problem:
+
   function firstItem(arr, cb) {
     // firstItem passes the first item of the given array to the callback function.
   }
@@ -17,34 +17,72 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
     return cb(arr[0]);
   }
 
-  // Function invocation 
+  // Function invocation
   firstItem(items, function(first) {
     console.log(first)
   });
 
 */
 
-
 function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
 
-function last(arr, cb) {
-  // last passes the last item of the array into the callback.
+getLength(items, function(length) {
+  console.log(length)
+});
+
+//
+
+function lastItem(arr, cb) {
+  let i = arr.length - 1;
+  return cb(arr[i])
 }
+
+lastItem(items, function(last) {
+  console.log(last)
+});
+
+//
 
 function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x + y);
 }
 
+sumNums(1, 2, function(added) {
+  console.log(added)
+});
+
+//
+
 function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x * y);
 }
+
+multiplyNums(1, 2, function(multed) {
+  console.log(multed)
+});
+
+//
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  let n = 0
+  for(i=0; i < list.length; i++) {
+    if (item.toLowerCase() == list[i].toLowerCase()) {
+      n = n + 1 }
+  }
+  if (n > 0) {
+    return cb(true)
+  } else {
+    return cb(false)
+  }
 }
+
+contains('Notebook', items, function(torf) {
+  console.log(torf)
+});
 
 /* STRETCH PROBLEM */
 
